@@ -1,5 +1,8 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../../:\Ecole\BAC03\SEM02\21_HES-SO-VS_645-1 Software Development Projects\Projet\ProjetGitHub\645-1_GROUPE1\.idea/dataSources/
+/dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
