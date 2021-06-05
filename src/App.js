@@ -6,7 +6,9 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Candidat from "./pages/Candidat";
 
+
 function App() {
+  const test = Candidat.id_postulant===1;
   return (
     <div className="App">
       <header className="App-header">
@@ -17,11 +19,13 @@ function App() {
             <Route path="/companies" component={Companies} />
             <Route path="/conversation" component={Conversation} />
             <Route path="/login" component={Login} />
-            <Route path="/Candidat" component={Candidat} />
+            <Route path="/candidat/" component={Candidat} />
 
+            < Candidat nom="toto" />
           </Switch>
         </BrowserRouter>
       </header>
+
 
     </div>
   );
