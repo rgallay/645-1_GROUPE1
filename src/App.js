@@ -1,9 +1,13 @@
 import "./App.css";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Conversation from "./pages/Conversation";
 import Companies from "./pages/Companies";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import AppChatAPI from "./services/chatAPI_calling";
+
+
 
 function App() {
   return (
@@ -14,7 +18,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/companies" component={Companies} />
-            <Route path="/conversation" component={Conversation} />
+            <Route path="/conversation" component={AppChatAPI} />
             <Route path="/login" component={Login} />
           </Switch>
         </BrowserRouter>
