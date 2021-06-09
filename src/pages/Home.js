@@ -27,8 +27,8 @@ export default function Home() {
       <Link className="App-link" to={`/conversation`}>
         Go To Conversation (Example)
       </Link>
-        <Link className="App-link" to={`/candidat`}>
-            See List of Candidat (Example)
+        <Link className="App-link" to={`/postulants`}>
+            See List of Postulants (Example)
         </Link>
     </>
   );

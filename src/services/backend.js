@@ -3,7 +3,10 @@ import request from "../utils/request";
 export const ENDPOINTS = {
   LOGIN: `${process.env.REACT_APP_BACKEND_URL}/user/login`,
   COMPANIES: `${process.env.REACT_APP_BACKEND_URL}/entreprise`,
-  CANDIDATS: `${process.env.REACT_APP_BACKEND_URL}/postulant`,
+  POSTULANT: `${process.env.REACT_APP_BACKEND_URL}/postulant`,
+  OFFRES: `${process.env.REACT_APP_BACKEND_URL}/offre`,
+  CHAT: `${process.env.REACT_APP_BACKEND_URL}/chat/conversation`,
+  USERS : `${process.env.REACT_APP_BACKEND_URL}/user`
 };
 
 export const Backend = {
@@ -18,7 +21,18 @@ export const Backend = {
     return request(ENDPOINTS.COMPANIES);
   },
 
-  candidats: async function () {
-    return request(ENDPOINTS.CANDIDATS);
+  getOffres: async function () {
+    return request(ENDPOINTS.OFFRES);
   },
+
+  getChat: async function (id) {
+    return request(ENDPOINTS.CHAT+"/"+ id);
+  },
+  getEntreprise: async function(id) {
+    return request(ENDPOINTS.COMPANIES+"/"+ id);
+  },
+
+  getUser: async function() {
+    return request(ENDPOINTS.USERS);
+  }
 };
