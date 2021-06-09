@@ -12,6 +12,7 @@ const Navigation = () => {
                         <Nav.Link href='/conversation'>Conversation</Nav.Link>
                         <Nav.Link href='/listeOffres'>ListeOffres</Nav.Link>
                         <Nav.Link href='/companies'>Companies</Nav.Link>
+                        <Nav.Link href='/candidats'>Candidats</Nav.Link>
                     </Nav>
             </Container>
         </Navbar>
