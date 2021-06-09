@@ -20,6 +20,9 @@ export const Backend = {
   companies: async function () {
     return request(ENDPOINTS.COMPANIES);
   },
+  postulants: async function () {
+    return request(ENDPOINTS.POSTULANT);
+  },
 
   getOffres: async function () {
     return request(ENDPOINTS.OFFRES);
@@ -30,6 +33,9 @@ export const Backend = {
   },
   getEntreprise: async function(id) {
     return request(ENDPOINTS.COMPANIES+"/"+ id);
+  },
+  getPostulant: async function(id) {
+    return request(ENDPOINTS.POSTULANT+"/"+ id);
   },
 
   getUser: async function() {
