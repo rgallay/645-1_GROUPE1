@@ -70,5 +70,8 @@ export const Backend = {
 
   getUser: async function() {
     return request(ENDPOINTS.USERS);
+  },
+  getUserConnected: async function(id) {
+    return request(ENDPOINTS.USERS+"/"+id);
   }
 };

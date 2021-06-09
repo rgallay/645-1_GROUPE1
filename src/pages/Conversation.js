@@ -20,13 +20,16 @@ export default function Conversation() {
   afficheConversations();
 }, []);
 
+  console.log(conversations);
   return (
       <div>
         <h1>Mes conversations</h1>
         <ul>
-          {conversations.map((c) => (
-              <p>{c.id_user1} {c.id_user2}</p>
-          ))}
+            <li>
+              {conversations.map((c) => (
+                  <p>{c.id_user1} {c.id_user2}</p>
+              ))}
+            </li>
         </ul>
       </div>
   );

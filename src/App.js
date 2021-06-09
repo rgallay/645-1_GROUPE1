@@ -1,18 +1,32 @@
 import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch} from "react-router-dom";
 import Conversation from "./pages/Conversation";
 import ListePostulants from "./pages/ListePostulants";
 import Companies from "./pages/Companies";
 import Login from "./pages/Login";
 import ListeOffres from "./pages/ListeOffres"
-import Navigation from "./pages/Navigation";
+import NavigationUser from "./pages/NavigationUser";
+import NavigationEntreprise from "./pages/NavigationEnterprise";
+import {ID_USER_CONNECTED, TOKEN_STORAGE_KEY, TYPE_USER_CONNECTED} from "./utils/request";
+import React, {useEffect, useState} from "react";
+import {Backend} from "./services/backend";
+import {LoggedType} from "./pages/LoggedType";
+import {Offre} from "./Compenents/Offre";
 
 function App() {
+
+
+  const user = localStorage.getItem(TYPE_USER_CONNECTED);
+  const userLogged = localStorage.getItem(ID_USER_CONNECTED);
+  console.log(userLogged);
+  console.log(user);
   return (
     <div className="App">
       <header className="App-header">
         <p>Welcome to the WeAll Chat</p>
-        <Navigation/>
+
+
+        { userLogged <1 ? null : user === 1 ? (<NavigationEntreprise/>) :  (<NavigationUser/>) }
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={Login} />
