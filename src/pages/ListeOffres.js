@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Backend } from "../services/backend";
-import {Offre} from "../Compenents/Offre";
+import LogiqueModale from "../LogiqueModale";
+import ModaleE from "../ModaleE";
 
 export default function ListeOffres() {
     // Hold the list of offers in the compenent state
     const [offres, setOffres] = useState([]);
     const [selectedOffre, setSelectedOffre] = useState();
     const [entreprise, setEntreprise] = useState();
+    const {revele, toggle} = LogiqueModale();
 
     // Load the offers on component mounting
     useEffect(() => {
@@ -26,7 +28,6 @@ export default function ListeOffres() {
             try {
                 let entreprise = await Backend.getEntreprise(selectedOffre.id_entreprise);
                 setEntreprise(entreprise[0]);
-
             } catch (e) {
                 console.error(e);
             }
@@ -42,16 +43,20 @@ export default function ListeOffres() {
                 {offres.map((o) => (
                     <li>
                     <a href="#" onClick={() => {
-                        setSelectedOffre(o);
+                        setSelectedOffre(o);toggle();
                     }}>
                     {o.id_offre} - {o.nom}
                     </a>
                     </li>
                 ))}
             </ul>
-            <div>
-                {selectedOffre && entreprise ? (<Offre offre ={selectedOffre} entreprise={entreprise} />) :null }
-            </div>
+            <ModaleE
+                revele={revele}
+                cache={toggle}
+                offre ={selectedOffre}
+                entreprise={entreprise}
+            />
+
         </div>
     );
 }
