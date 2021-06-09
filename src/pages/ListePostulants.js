@@ -46,7 +46,7 @@ export default function ListePostulants() {
                     <li>
                         <a href="#"
                            onClick={() => {setSelectedPostulant(c);toggle();}}>
-                            {c.id_user} - {c.nom}
+                            {c.id_user} - {c.date_de_naissance}
                         </a>
                     </li>
                 ))}

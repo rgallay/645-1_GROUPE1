@@ -7,10 +7,11 @@ export const Postulant = (props) => {
         <div className="postulant">
             <h3>Profil du candidat</h3>
             <div>
-                <div className="cadre">
+                <div className="cadre"className="hiddenclass">
                     <p>{postulant.nom} {postulant.prenom}</p>
-                    <p> {postulant.date_de_naissance}  </p>
+                    <p> Date de naissance :  {postulant.date_de_naissance}  </p>
                     <p>{postulant.sexe}</p>
+                    <p>{postulant.adress}<br/>{postulant.npa} - {postulant.localite}</p>
 
                     <br />
                 </div>
@@ -69,10 +70,13 @@ export const Postulant = (props) => {
 
                     </ul>
                 </div>
-                <h5>Attente salariale</h5>
-                <p></p>
-                <h5>Disponibilité</h5>
-                <p>Attente salariale</p>
+
+                <div  className="cadre">
+                <h5>Disponibilité: </h5>
+                <p>{postulant.disponibilite}</p>
+                <h5>Attente salariale: </h5>
+                <p>{postulant.salaire_min} - {postulant.salaire_max}</p>
+                </div>
 
 
             </div>
