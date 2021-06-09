@@ -10,7 +10,7 @@ export default function Conversation() {
   useEffect(() => {
     async function afficheConversations() {
       try {
-        let conversations = await Backend.getChat(5)
+        let conversations = await Backend.getChat(localStorage.getItem('idUserConnected'))
         setConversations(conversations);
       } catch (e) {
         console.error(e);
@@ -25,7 +25,7 @@ export default function Conversation() {
         <h1>Mes conversations</h1>
         <ul>
           {conversations.map((c) => (
-              <li key={c.nom_entreprise}>{c.nom_entreprise}</li>
+              <p>{c.id_user1} {c.id_user2}</p>
           ))}
         </ul>
       </div>

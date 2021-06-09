@@ -25,8 +25,7 @@ export default function Login() {
 
       let users = await Backend.getUser();
 
-      const userConnected = users.find(element => element.email = email);
-
+      const userConnected = users.find(element => element.e_mail === email);
       // Save the token to localStorage & redirect to the home page
       localStorage.setItem(TOKEN_STORAGE_KEY, loginData.token);
       localStorage.setItem(ID_USER_CONNECTED, userConnected.id_user);
