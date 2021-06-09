@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Backend } from "../services/backend";
+import {Offre} from "../Compenents/Offre";
 import LogiqueModale from "../LogiqueModale";
 import ModaleE from "../ModaleE";
 

@@ -3,7 +3,6 @@ import './App.css';
 import {Offre} from "./Compenents/Offre";
 
 
-
 const ModaleE = (props) => {
     const {revele, cache, offre, entreprise} = props;
 
@@ -16,11 +15,10 @@ const ModaleE = (props) => {
                         <span>&lt; Retour</span>
                     </button>
                     <p>
-                        <Offre offre ={offre} entreprise={entreprise} />
+                        {offre && entreprise ? (<Offre offre ={offre} entreprise={entreprise} />) :null }
                     </p>
                 </div>
             </div>
-
         </>
     ) : null;
 

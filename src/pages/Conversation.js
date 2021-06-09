@@ -10,7 +10,7 @@ export default function Conversation() {
   useEffect(() => {
     async function afficheConversations() {
       try {
-        let conversations = await Backend.getChat(1); //how to get id of connected user
+        let conversations = await Backend.getChat(5)
         setConversations(conversations);
       } catch (e) {
         console.error(e);

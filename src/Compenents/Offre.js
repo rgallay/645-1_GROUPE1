@@ -1,7 +1,8 @@
 import React from "react";
 
 export const Offre = (props) => {
-    const {offre, entreprise} = props;
+    const { offre, entreprise } = props;
+
     return(
         <div className="offre">
             <div>
@@ -28,9 +29,7 @@ export const Offre = (props) => {
                         <li>{entreprise.benefice_externe_2}</li>
                         <li>{entreprise.benefice_externe_3}</li>
                     </ul></p>
-
             </div>
-
             <div className="cadre">
                 <h4>Offre proposée</h4>
                 <h5>Titre: {offre.nom}</h5>

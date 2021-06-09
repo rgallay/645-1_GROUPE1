@@ -29,7 +29,7 @@ export default function ListePostulants() {
         async function selectPostulant() {
             try {
                 let candidat = await Backend.getPostulant(selectedPostulant.id_user);
-                setPostulant(postulant[0]);
+                setPostulant(candidat[0]);
             } catch (e) {
                 console.error(e);
             }
@@ -56,7 +56,6 @@ export default function ListePostulants() {
                 cache={toggle}
                 postulant ={selectedPostulant}
             />
-
         </div>
     );
 }
