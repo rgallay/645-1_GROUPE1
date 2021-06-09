@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Backend } from "../services/backend";
-import { TOKEN_STORAGE_KEY } from "../utils/request";
+import { ID_USER_CONNECTED, TOKEN_STORAGE_KEY } from "../utils/request";
 import { useHistory } from "react-router-dom";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [email, setEmail] = useState("group1React@hevs.ch");
+  const [password, setPassword] = useState("group1react");
   const history = useHistory();
 
   const handleEmailChange = (e) => {
@@ -24,11 +23,16 @@ export default function Login() {
     try {
       let loginData = await Backend.login(email, password);
 
+      let users = await Backend.getUser();
+
+      const userConnected = users.find(element => element.email = email);
+
       // Save the token to localStorage & redirect to the home page
       localStorage.setItem(TOKEN_STORAGE_KEY, loginData.token);
+      localStorage.setItem(ID_USER_CONNECTED, userConnected.id_user);
 
       // Redirect to the home page
-      history.push("/");
+      history.push("/conversation");
     } catch (e) {
       console.error(e);
     }
