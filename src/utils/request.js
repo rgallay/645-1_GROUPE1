@@ -1,5 +1,6 @@
 export const TOKEN_STORAGE_KEY = "token";
 export const ID_USER_CONNECTED = "idUserConnected";
+export const TYPE_USER_CONNECTED = "typeUserConnected";
 
 export default async function request(
   url,

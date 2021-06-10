@@ -71,3 +71,34 @@ code {
 }
 
 
+#ListeConversation table,th{
+  border:0.5px solid white;
+}
+#ListeConversation td:first-child{
+  border-right:0.5px solid white;
+}
+#ListeConversation ul{
+  padding:0px;
+}
+#ListeConversation ul li{
+  list-style-type:none;
+  text-align: center;
+
+}
+#ListeConversation ul li a{
+  list-style-type:none;
+  text-decoration: none;
+  color:white;
+}
+.deleteButton{
+
+}
+.customList{
+  border:1px solid white;
+  margin-bottom:2px;
+}
+.customList button{
+  float:right;
+  margin-top: 5px;
+}
+
