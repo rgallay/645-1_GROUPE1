@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Login from "./pages/Login";
 import Companies from "./pages/Companies";
-import Conversation from "./pages/Conversation";
+import Conversation from "./Compenents/Conversation";
 import ListeOffres from "./pages/ListeOffres";
 import ListePostulants from "./pages/ListePostulants";
 

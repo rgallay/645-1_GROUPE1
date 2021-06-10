@@ -8,7 +8,7 @@ const NavigationUser = () => {
                 <Navbar.Collapse id='responsive-navbar-nav'/>
                     <Nav>
                         <Nav.Link href='/'>Login</Nav.Link>
-                        <Nav.Link href='/conversation'>Conversation</Nav.Link>
+                        <Nav.Link href='/listeconversations'>Liste Conversations</Nav.Link>
                         <Nav.Link href='/listeOffres'>ListeOffres</Nav.Link>
                         <Nav.Link href='/companies'>Companies</Nav.Link>
                     </Nav>

@@ -43,11 +43,11 @@ export default function ListeOffres() {
             <ul>
                 {offres.map((o) => (
                     <li>
-                    <a href="#" onClick={() => {
-                        setSelectedOffre(o);toggle();
-                    }}>
-                    {o.id_offre} - {o.nom}
-                    </a>
+                        <a href="#" onClick={() => {
+                                setSelectedOffre(o);toggle();
+                            }}>
+                            {o.id_offre} - {o.nom}
+                        </a>
                     </li>
                 ))}
             </ul>

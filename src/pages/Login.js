@@ -39,7 +39,7 @@ export default function Login() {
       localStorage.setItem(ID_USER_CONNECTED, userConnected.id_user);
       localStorage.setItem(TYPE_USER_CONNECTED, userConnected.isEntreprise);
       // Redirect to the home page
-      history.push("/conversation");
+      history.push("/listeconversation");
     } catch (e) {
       console.error(e);
     }

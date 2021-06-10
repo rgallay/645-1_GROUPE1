@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch} from "react-router-dom";
-import Conversation from "./pages/Conversation";
 import ListePostulants from "./pages/ListePostulants";
 import Companies from "./pages/Companies";
 import Login from "./pages/Login";
@@ -9,9 +8,8 @@ import NavigationUser from "./pages/NavigationUser";
 import NavigationEntreprise from "./pages/NavigationEnterprise";
 import {ID_USER_CONNECTED, TOKEN_STORAGE_KEY, TYPE_USER_CONNECTED} from "./utils/request";
 import React, {useEffect, useState} from "react";
-import {Backend} from "./services/backend";
-import {LoggedType} from "./pages/LoggedType";
-import {Offre} from "./Compenents/Offre";
+import ListeConversations from "./pages/ListeConversations";
+
 
 function App() {
 
@@ -31,7 +29,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Login} />
             <Route path="/companies" component={Companies} />
-            <Route path="/conversation" component={Conversation} />
+            <Route path="/listeconversations" component={ListeConversations} />
             <Route path="/listeOffres" component={ListeOffres} />
             <Route path="/candidats" component={ListePostulants} />
           </Switch>
