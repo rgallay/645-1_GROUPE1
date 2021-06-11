@@ -2,24 +2,25 @@ import React, {useEffect, useState} from "react";
 import {Backend} from "../services/backend";
 import {Conversation} from "../Compenents/Conversation";
 import SendMessage from "../SendMessage";
+import {ID_USER_CONNECTED} from "../utils/request";
+import {useHistory} from "react-router-dom";
+import LogiqueModale from "../LogiqueModale";
+import ModaleE from "../ModaleE";
+import Modale from "../Modale";
 
 export default function ListeConversations() {
 
   const[conversations, setConversations] = useState([]);
   const[selectedconversation, setSelectedConversation] = useState([0]);
   const[messages, setMessages] = useState(0);
+  const {revele, toggle} = LogiqueModale();
 
-  //exemple de tableau à garder pour tester des champs si on ne récupère pas du backend
-  const test= [  {text: 'Whatever the mind of man can conceive and believe, it can achieve.',
-      author: 'Napoleon Hill'},
-      {text: 'Strive not to be a success, but rather to be of value.',
-          author: 'Albert Einstein'},
-      {text: 'I attribute my success to this: I never gave or took any excuse.',
-          author: 'Florence Nightingale'},
-      {text: 'You miss 100% of the shots you don’t take.',
-          author: 'Wayne Gretzky'}];
+    const [selectedPostulant, setSelectedPostulant] = useState();
+    const [postulant, setPostulant] = useState();
 
-  // Affiche la liste de toutes les conversations
+  const history = useHistory();
+
+
   useEffect(() => {
     async function afficheListConversations() {
       try {
@@ -47,6 +48,31 @@ export default function ListeConversations() {
         selectConv();
     }, [selectedconversation]);
 
+
+    const deleteMessage = async (e) => {
+        e.preventDefault();
+
+        try {
+            await Backend.deleteChat(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
+            history.push("/listeconversations");
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+        useEffect(() => {
+        async function selectPostulant() {
+            try {
+                let candidat = await Backend.getPostulant(selectedconversation.id_user2);
+                setPostulant(candidat[0]);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        selectPostulant();
+    }, [setSelectedPostulant()]);
+
   return (
       <>
           <div id="ListeConversation">
@@ -58,6 +84,9 @@ export default function ListeConversations() {
                   <tr>
                       <th>Liste des conversations </th>
                       <th>Conversation sélectionnées</th>
+                      <th>
+                          <button onClick={() => {toggle();}}>Profil</button>
+                      </th>
                   </tr>
                   </thead>
                   <tbody>
@@ -67,10 +96,10 @@ export default function ListeConversations() {
                                     {conversations.map((c, index) => (
                                         <li key={index} className="customList">
                                     <a href="#"
-                                       onClick={() => {setSelectedConversation(c);}}>
+                                       onClick={() => {setSelectedConversation(c);setPostulant(c.id_user2);}}>
                                         {c.id_user1} {c.id_user2}
                                     </a><span> </span>
-                                            <button className="deleteButton">Delete</button>
+                                            <button className="deleteButton" onClick={deleteMessage}>Delete</button>
                                         </li>
                                     ))}
                             </ul>
@@ -91,6 +120,13 @@ export default function ListeConversations() {
 
                   </tbody>
                   </table>
+          </div>
+          <div>
+              <Modale
+                  revele={revele}
+                  cache={toggle}
+                  postulant ={postulant}
+              />
           </div>
           </>
   );

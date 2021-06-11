@@ -47,6 +47,18 @@ export const Backend = {
   getChat: async function (id) {
     return request(ENDPOINTS.CHAT+"/"+ id);
   },
+  createChat: async function (id1, id2) {
+    return request(ENDPOINTS.CHAT
+        +"/" + id1 + "/" + id2, {
+      method: "POST",
+    });
+  },
+  deleteChat: async function (id1, id2) {
+    return request(ENDPOINTS.CHAT
+        +"/" + id1 + "/" + id2, {
+      method: "DELETE",
+    });
+  },
   getEntreprise: async function(id) {
     return request(ENDPOINTS.COMPANIES+"/"+ id);
   },
