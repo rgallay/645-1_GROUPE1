@@ -23,6 +23,12 @@ export const Backend = {
       data: { email, password },
     });
   },
+  sendMessage: async function (id1, id2, body) {
+    return request(ENDPOINTS.MESSAGE+"/" + id1 + "/" + id2, {
+      method: "POST",
+      data: {message: body},
+    });
+  },
 
   companies: async function () {
     return request(ENDPOINTS.COMPANIES);
@@ -76,6 +82,9 @@ export const Backend = {
     return request(ENDPOINTS.USERS);
   },
   getUserConnected: async function(id) {
+    return request(ENDPOINTS.USERS+"/"+id);
+  },
+  getUserID: async function(id) {
     return request(ENDPOINTS.USERS+"/"+id);
   }
 };
