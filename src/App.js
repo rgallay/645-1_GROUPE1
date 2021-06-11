@@ -25,6 +25,7 @@ function App() {
 
 
         { userLogged <1 ? null : user === 1 ? (<NavigationEntreprise/>) :  (<NavigationUser/>) }
+
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={Login} />
