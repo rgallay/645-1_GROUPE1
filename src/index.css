@@ -1,13 +1,104 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
+
+.listInline ul li{
+  display : block;
+
+}
+.listInline li{
+
+  padding-left: 20px;
+
+}
+.cadre {
+  border: 1px;
+  border-style: solid;
+  margin:20px;
+  margin-bottom: 20px;
+
+}
+
+.postulant h3,h4,h5{
+  text-align: left;
+}
+.offre h3,h4,h5{
+  text-align: left;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.5);
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.wrapper{
+  height:90%;
+  width: 60%;
+  background-color:white;
+  color:black;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  font-size: 0.7em;
+}
+.wrapper button{
+  float: right;
+  margin-right:20px;
+}
+.hiddenclass{
+  color: transparent;
+  text-shadow: 0 0 8px #000;
+
+}
+.profilEntreprise{
+  margin-left:20px;
+}
+
+
+#ListeConversation table,th{
+  border:0.5px solid white;
+}
+#ListeConversation td:first-child{
+  border-right:0.5px solid white;
+}
+#ListeConversation ul{
+  padding:0px;
+}
+#ListeConversation ul li{
+  list-style-type:none;
+  text-align: center;
+
+}
+#ListeConversation ul li a{
+  list-style-type:none;
+  text-decoration: none;
+  color:white;
+}
+.deleteButton{
+
+}
+.customList{
+  border:1px solid white;
+  margin-bottom:2px;
+}
+.customList button{
+  float:right;
+  margin-top: 5px;
+}
+
