@@ -14,12 +14,14 @@ code {
 
 .listInline ul li{
   display : block;
+  color:white;
 
 }
 .listInline li{
-
   padding-left: 20px;
-
+}
+.listInline a:visited{
+  color:white;
 }
 .cadre {
   border: 1px;
@@ -121,7 +123,6 @@ code {
   margin-left:15px;
   margin-right:15px;
   margin-bottom: 17px;
-
 }
 .customList2 text{
 
