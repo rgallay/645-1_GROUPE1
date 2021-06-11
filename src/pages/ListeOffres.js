@@ -37,6 +37,7 @@ export default function ListeOffres() {
         selectOffer();
     }, [selectedOffre]);
 
+
     return (
         <div className="listInline">
             <h1>Liste des Offres</h1>
