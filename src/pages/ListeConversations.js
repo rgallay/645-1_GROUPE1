@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Backend} from "../services/backend";
 import {Conversation} from "../Compenents/Conversation";
 import SendMessage from "../SendMessage";
+import {ID_USER_CONNECTED} from "../utils/request";
 
 export default function ListeConversations() {
 
@@ -47,6 +48,17 @@ export default function ListeConversations() {
         selectConv();
     }, [selectedconversation]);
 
+
+    const deleteMessage = async (e) => {
+        e.preventDefault();
+
+        try {
+            await Backend.deleteChat(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
   return (
       <>
           <div id="ListeConversation">
@@ -70,7 +82,7 @@ export default function ListeConversations() {
                                        onClick={() => {setSelectedConversation(c);}}>
                                         {c.id_user1} {c.id_user2}
                                     </a><span> </span>
-                                            <button className="deleteButton">Delete</button>
+                                            <button className="deleteButton" onClick={deleteMessage}>Delete</button>
                                         </li>
                                     ))}
                             </ul>
