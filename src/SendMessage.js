@@ -4,6 +4,7 @@ import {ID_USER_CONNECTED} from "./utils/request";
 
 export default function SendMessage(props) {
   const [message, setMessage] = useState("");
+  const { user2 } = props;
 
 
   const handleTexteChange = (e) => {
@@ -15,8 +16,8 @@ export default function SendMessage(props) {
 
     try {
       let me = localStorage.getItem(ID_USER_CONNECTED);
-
-      await Backend.sendMessage(me,2,message);
+      console.log(user2);
+      await Backend.sendMessage(me,user2.id_user2,message);
       setMessage("");
      /* let loginData = await Backend.login(email, password);
 

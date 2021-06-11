@@ -7,7 +7,7 @@ export default function ListeConversations() {
 
   const[conversations, setConversations] = useState([]);
   const[selectedconversation, setSelectedConversation] = useState([0]);
-  const[messages, setMessages] = useState();
+  const[messages, setMessages] = useState(0);
 
   //exemple de tableau à garder pour tester des champs si on ne récupère pas du backend
   const test= [  {text: 'Whatever the mind of man can conceive and believe, it can achieve.',
@@ -37,7 +37,7 @@ export default function ListeConversations() {
         async function selectConv() {
             try {
                 //let messages = await Backend.getMessage(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
-                let messages = await Backend.getMessages(1,2);
+                let messages = await Backend.getMessages(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
                 //dans ces messages je récupère tous les messages de la conversation
                 setMessages(messages);
             } catch (e) {
@@ -85,7 +85,7 @@ export default function ListeConversations() {
                   <tr>
                       <td></td>
                       <td className="specialTest">
-                          <SendMessage />
+                          <SendMessage user2={selectedconversation}/>
                       </td>
                   </tr>
 

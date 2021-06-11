@@ -38,7 +38,7 @@ export default function ListeOffres() {
     }, [selectedOffre]);
 
     return (
-        <div>
+        <div className="listInline">
             <h1>Liste des Offres</h1>
             <ul>
                 {offres.map((o) => (

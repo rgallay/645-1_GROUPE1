@@ -16,8 +16,7 @@ function App() {
 
   const user = localStorage.getItem(TYPE_USER_CONNECTED);
   const userLogged = localStorage.getItem(ID_USER_CONNECTED);
-  console.log(userLogged);
-  console.log(user);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -25,6 +24,7 @@ function App() {
 
 
         { userLogged <1 ? null : user === 1 ? (<NavigationEntreprise/>) :  (<NavigationUser/>) }
+        <NavigationEntreprise/>
 
         <BrowserRouter>
           <Switch>
