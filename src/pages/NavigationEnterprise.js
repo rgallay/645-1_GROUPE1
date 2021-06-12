@@ -1,6 +1,14 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
 
 const NavigationEntreprise = () => {
+    const history = useHistory();
+
+    function logout(){
+            localStorage.clear();
+            history.push("/");
+    };
+
     return (
         <>
         <Navbar collapseOnSelect fixed='top' expand='sm' bg='dark' variant='dark'>

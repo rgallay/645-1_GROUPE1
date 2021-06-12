@@ -16,16 +16,13 @@ function App() {
 
   const user = localStorage.getItem(TYPE_USER_CONNECTED);
   const userLogged = localStorage.getItem(ID_USER_CONNECTED);
-console.log(user);
 
   function Nav(){
-    console.log("toto");
     if(user == 1){
       return <NavigationEntreprise />;
     }else if(user == 0){
       return <NavigationUser />;
     }
-
   }
 
   return (

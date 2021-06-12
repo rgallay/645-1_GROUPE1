@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Backend } from "./services/backend";
 import {ID_USER_CONNECTED} from "./utils/request";
+import { useHistory } from "react-router-dom";
 
 export default function SendMessage(props) {
   const [message, setMessage] = useState("");
+  const history = useHistory();
   const { user2 } = props;
 
 
@@ -19,6 +21,7 @@ export default function SendMessage(props) {
       console.log(user2);
       await Backend.sendMessage(me,user2.id_user2,message);
       setMessage("");
+      history.go(0);
      /* let loginData = await Backend.login(email, password);
 
 

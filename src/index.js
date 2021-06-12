@@ -4,17 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Login from "./pages/Login";
-import Companies from "./pages/Companies";
-import Conversation from "./Compenents/Conversation";
-import ListeOffres from "./pages/ListeOffres";
-import ListePostulants from "./pages/ListePostulants";
+import { ThemeProvider } from './ThemeContext'
 
 ReactDOM.render(
   <Router>
       <BrowserRouter>
           <Switch>
-              <App />
+              <ThemeProvider>
+                <App />
+              </ThemeProvider>
           </Switch>
       </BrowserRouter>
   </Router>,
