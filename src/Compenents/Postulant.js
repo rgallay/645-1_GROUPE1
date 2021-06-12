@@ -2,7 +2,6 @@ import React from "react";
 
 export const Postulant = (props) => {
     const {postulant} = props;
-
     return (
         <div className="postulant">
             <h3>Profil du candidat</h3>

@@ -14,10 +14,7 @@ export default function ListeConversations() {
   const[selectedconversation, setSelectedConversation] = useState([0]);
   const[messages, setMessages] = useState(0);
   const {revele, toggle} = LogiqueModale();
-
-    const [selectedPostulant, setSelectedPostulant] = useState();
-    const [postulant, setPostulant] = useState();
-
+  const [postulant, setPostulant] = useState();
   const history = useHistory();
 
 
@@ -41,6 +38,10 @@ export default function ListeConversations() {
                 let messages = await Backend.getMessages(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
                 //dans ces messages je récupère tous les messages de la conversation
                 setMessages(messages);
+
+                let candidat = await Backend.getPostulant(selectedconversation.id_user2);
+                setPostulant(candidat[0]);
+
             } catch (e) {
                 console.error(e);
             }
@@ -60,7 +61,7 @@ export default function ListeConversations() {
         }
     };
 
-        useEffect(() => {
+      /*  useEffect(() => {
         async function selectPostulant() {
             try {
                 let candidat = await Backend.getPostulant(selectedconversation.id_user2);
@@ -71,7 +72,7 @@ export default function ListeConversations() {
         }
 
         selectPostulant();
-    }, [setSelectedPostulant()]);
+    }, []);*/
 
   return (
       <>
