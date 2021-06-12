@@ -30,6 +30,7 @@ export default function ListePostulants() {
             try {
                 let candidat = await Backend.getPostulant(selectedPostulant.id_user);
                 setPostulant(candidat[0]);
+                console.log(selectedPostulant.id_user);
             } catch (e) {
                 console.error(e);
             }
@@ -54,7 +55,7 @@ export default function ListePostulants() {
             <Modale
                 revele={revele}
                 cache={toggle}
-                postulant ={selectedPostulant}
+                postulant ={postulant}
             />
         </div>
     );
