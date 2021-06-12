@@ -2,11 +2,12 @@ import React, {useEffect, useState} from "react";
 import {Backend} from "../services/backend";
 import {Conversation} from "../Compenents/Conversation";
 import SendMessage from "../SendMessage";
-import {ID_USER_CONNECTED} from "../utils/request";
+import {TYPE_USER_CONNECTED} from "../utils/request";
 import {useHistory} from "react-router-dom";
 import LogiqueModale from "../LogiqueModale";
-import ModaleE from "../ModaleE";
 import Modale from "../Modale";
+import { ThemeContext} from "../ThemeContext"
+
 
 export default function ListeConversations() {
 
@@ -16,6 +17,9 @@ export default function ListeConversations() {
   const {revele, toggle} = LogiqueModale();
   const [postulant, setPostulant] = useState();
   const history = useHistory();
+  const user = localStorage.getItem(TYPE_USER_CONNECTED);
+
+    const { theme, toggled, dark } = React.useContext(ThemeContext)
 
 
   useEffect(() => {
@@ -55,24 +59,15 @@ export default function ListeConversations() {
 
         try {
             await Backend.deleteChat(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
-            history.push("/listeconversations");
+            history.go(0);
         } catch (e) {
             console.error(e);
         }
     };
 
-      /*  useEffect(() => {
-        async function selectPostulant() {
-            try {
-                let candidat = await Backend.getPostulant(selectedconversation.id_user2);
-                setPostulant(candidat[0]);
-            } catch (e) {
-                console.error(e);
-            }
-        }
 
-        selectPostulant();
-    }, []);*/
+
+
 
   return (
       <>
@@ -86,16 +81,32 @@ export default function ListeConversations() {
                       <th>Liste des conversations </th>
                       <th>Conversation sélectionnées</th>
                       <th>
-                          <button onClick={() => {toggle();}}>Profil</button>
+                          {user == 1 ? <button style={{marginRight:'5px'}} onClick={() => {toggle();}}>Profil</button> : null}
+
+                          <button
+                              type="button"
+                              onClick={toggled}
+                              style={{
+                                  backgroundColor: theme.backgroundColor,
+                                  color: theme.color,
+                                  outline: 'none',
+                                  borderRadius: '20px'
+                              }}
+                              data-testid="toggle-theme-btn"
+                          >
+                              {!dark ? 'Grey' : 'Blue'} theme
+                          </button>
+
                       </th>
                   </tr>
                   </thead>
                   <tbody>
                       <tr>
                           <td>
+
                             <ul>
                                     {conversations.map((c, index) => (
-                                        <li key={index} className="customList">
+                                        <li key={index} className="customList" >
                                     <a href="#"
                                        onClick={() => {setSelectedConversation(c);setPostulant(c.id_user2);}}>
                                         {c.id_user1} {c.id_user2}
@@ -105,8 +116,8 @@ export default function ListeConversations() {
                                     ))}
                             </ul>
                           </td>
-                          <td>
-                              <ul>
+                          <td colSpan="2">
+                              <ul >
                                   {selectedconversation !=0 ? <Conversation conversations={messages} /> : null}
                               </ul>
                           </td>
@@ -114,7 +125,7 @@ export default function ListeConversations() {
                       </tr>
                   <tr>
                       <td></td>
-                      <td className="specialTest">
+                      <td colSpan="2" className="specialTest">
                           <SendMessage user2={selectedconversation}/>
                       </td>
                   </tr>

@@ -6,13 +6,14 @@ import { useHistory } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedIn, setLog] = useState("false");
   const history = useHistory();
+
 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -23,7 +24,6 @@ export default function Login() {
 
     try {
       let loginData = await Backend.login(email, password);
-
       let users = await Backend.getUser();
       let userConnected;
 
@@ -34,12 +34,26 @@ export default function Login() {
         }
       });
 
+      setLog(true);
       // Save the token to localStorage & redirect to the home page
       localStorage.setItem(TOKEN_STORAGE_KEY, loginData.token);
       localStorage.setItem(ID_USER_CONNECTED, userConnected.id_user);
       localStorage.setItem(TYPE_USER_CONNECTED, userConnected.isEntreprise);
       // Redirect to the home page
-      history.push("/listeconversations");
+
+      history.go(0);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const logout = async (e) => {
+    e.preventDefault();
+
+    setLog(false);
+    try {
+      localStorage.clear();
+      history.push("/");
     } catch (e) {
       console.error(e);
     }
@@ -49,7 +63,7 @@ export default function Login() {
     <div>
       <h1>Login</h1>
 
-      <form onSubmit={handleSubmit}>
+      {isLoggedIn==false ? (<form onSubmit={handleSubmit}>
         <input
           required
           placeholder="E-mail"
@@ -67,7 +81,8 @@ export default function Login() {
         />
         <br />
         <button type="submit">Login</button>
-      </form>
+
+      </form>) : (<button type="submit" onClick={logout}>Logout</button>)}
     </div>
   );
 }

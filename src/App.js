@@ -17,14 +17,20 @@ function App() {
   const user = localStorage.getItem(TYPE_USER_CONNECTED);
   const userLogged = localStorage.getItem(ID_USER_CONNECTED);
 
+  function Nav(){
+    if(user == 1){
+      return <NavigationEntreprise />;
+    }else if(user == 0){
+      return <NavigationUser />;
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <p>Welcome to the WeAll Chat</p>
 
-
-        { userLogged <1 ? null : user === 1 ? (<NavigationEntreprise/>) :  (<NavigationUser/>) }
-        <NavigationEntreprise/>
+        {Nav()}
 
         <BrowserRouter>
           <Switch>

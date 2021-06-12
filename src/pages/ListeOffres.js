@@ -42,8 +42,8 @@ export default function ListeOffres() {
         <div className="listInline">
             <h1>Liste des Offres</h1>
             <ul>
-                {offres.map((o) => (
-                    <li>
+                {offres.map((o, index) => (
+                    <li key={index}>
                         <a href="#" onClick={() => {
                                 setSelectedOffre(o);toggle();
                             }}>
