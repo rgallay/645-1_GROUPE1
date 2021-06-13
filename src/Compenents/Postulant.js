@@ -2,7 +2,7 @@ import React from "react";
 import {formateDate, calculDate} from "../utils/FormatDate";
 
 export const Postulant = (props) => {
-    const {postulant, competence, softskill, langues, experience} = props;
+    const {postulant, competence, softskill, langues, experience, formation} = props;
     return (
         <div className="postulant">
             <h3>Profil du candidat</h3>
@@ -30,38 +30,41 @@ export const Postulant = (props) => {
 
                 <div className="cadre">
                     <h5>Formations</h5>
-                    <p>
-                        <h5>Dates</h5>
-                        {postulant.url}
-                        <h4>Cursus</h4>
-                        <h4>Diplômes</h4>
-
-                    </p>
+                    <ul>
+                        {formation.map((c) => (
+                            <>
+                                <li className="cadre">
+                                    <h5 >{c.diplome}</h5>
+                                    <h5>Dates</h5>
+                                    Début : {formateDate(c.date_debut)}<br /> Fin : {formateDate(c.date_fin)}
+                                    <h5>Cursus</h5>
+                                    {c.cursus}
+                                    <h5>Diplôme</h5>
+                                    {c.degree}
+                                </li><br />
+                            </>
+                        ))}
+                    </ul>
                 </div>
 
                 <div className="cadre">
                     <h5>Expériences professionnelles</h5>
                     <ul>
-                    {experience.map((c) => (
-                        <>
-                        <li>
-                            Année d'expérience:<span> </span>
-                            {calculDate(c.date_fin, c.date_debut)}
+                        {experience.map((c) => (
+                            <>
+                                <li>
+                                    Année d'expérience:<span> </span>
+                                    {calculDate(c.date_fin, c.date_debut)}
 
-                            <br />
-                            Poste occupé : {c.poste}<br />
-                            Secteur d'activité : {c.id_secteur}<br />
-                            Entreprise: {c.entreprise}<br />
-                            Tâches principales :{c.description}
-                        </li><br />
-                        </>
-                    ))}
+                                    <br />
+                                    Poste occupé : {c.poste}<br />
+                                    Secteur d'activité : {c.id_secteur}<br />
+                                    Entreprise: {c.entreprise}<br />
+                                    Tâches principales :{c.description}
+                                </li><br />
+                            </>
+                        ))}
                     </ul>
-                        <h5>Années d'expériences</h5>
-
-                        <h5>Poste occupé</h5>
-                        <h5>Secteur d'activité</h5>
-                        <h5>Tâches principales</h5>
 
                 </div>
                 <div className="cadre">
@@ -84,18 +87,18 @@ export const Postulant = (props) => {
                     <ul>
                         {langues.map((c) => (
                             <>
-                            <li>
-                                Langue: {c.langue} - Niveau: {c.niveau} - Certificat: {c.certificat}<br />
-                                Séjour:
-                                <ul>
+                                <li>
+                                    Langue: {c.langue} - Niveau: {c.niveau} - Certificat: {c.certificat}<br />
+                                    Séjour:
+                                    <ul>
 
-                                {c.sejours.map((d) => (
-                                    <li>
-                                        Pays: {d.pays} <br />Type: {d.type} <br />Date: {d.debut} - {d.fin}
-                                    </li>
-                                ))}
-                                </ul>
-                            </li><br />
+                                        {c.sejours.map((d) => (
+                                            <li>
+                                                Pays: {d.pays} <br />Type: {d.type} <br />Date: {formateDate(d.debut)} - {formateDate(d.fin)}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </li><br />
                             </>
                         ))}
                     </ul>
@@ -114,10 +117,10 @@ export const Postulant = (props) => {
                 </div>
 
                 <div  className="cadre">
-                <h5>Disponibilité: </h5>
-                <p>{postulant.disponibilite}</p>
-                <h5>Attente salariale: </h5>
-                <p>{postulant.salaire_min} - {postulant.salaire_max}</p>
+                    <h5>Disponibilité: </h5>
+                    <p>{postulant.disponibilite}</p>
+                    <h5>Attente salariale: </h5>
+                    <p>{postulant.salaire_min} - {postulant.salaire_max}</p>
                 </div>
 
 
@@ -127,5 +130,3 @@ export const Postulant = (props) => {
 
 
 }
-
-

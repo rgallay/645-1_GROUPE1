@@ -5,7 +5,7 @@ import {Postulant} from "./Compenents/Postulant";
 
 
 const Modale = (props) => {
-    const {revele, cache, postulant, competence, softskill, langues, experience} = props;
+    const {revele, cache, postulant, competence, softskill, langues, experience, formation} = props;
 
     return revele ? (
         <>
@@ -16,7 +16,7 @@ const Modale = (props) => {
                         <span>&lt; Retour</span>
                     </button>
                     <p>
-                        <Postulant postulant={postulant} competence={competence} softskill={softskill} langues={langues} experience={experience}/>
+                        <Postulant postulant={postulant} competence={competence} softskill={softskill} langues={langues} experience={experience} formation={formation}/>
                     </p>
                 </div>
             </div>

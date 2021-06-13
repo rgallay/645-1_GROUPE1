@@ -15,7 +15,7 @@ export const Offre = (props) => {
                 />
                 <br />
                 <p>Adresse : {entreprise.adresse} <br /> {entreprise.adresse_suplémentaire}
-                <br />{entreprise.NPA} - {entreprise.localite}</p>
+                    <br />{entreprise.NPA} - {entreprise.localite}</p>
                 <div>
                     <p>Description Entreprise : {entreprise.description}</p>
                 </div>

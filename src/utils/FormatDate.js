@@ -9,6 +9,16 @@ export const formateDate = (date) => {
     });
 };
 
+export const formateDateTime = (date) => {
+    return new Date(Date.parse(date)).toLocaleString("fr-CH",{
+        day: "numeric",
+        year: "numeric",
+        month: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+    });
+};
+
 export const calculDate = (datedebut, datefin) => {
 
     return new Number((new Date(datefin).getTime() - new Date(datedebut).getTime()) / 31536000000).toFixed(0);

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Backend} from "../services/backend";
 import {ThemeContext} from "../ThemeContext";
+import {formateDateTime} from "../utils/FormatDate";
 
 export const Conversation = (props) => {
     const[user, setUser] = useState([0]);
@@ -30,23 +31,23 @@ export const Conversation = (props) => {
     }, []);
 
     return(
-<>
-           {conversations.map((c, index) => (
+        <>
+            {conversations.map((c, index) => (
                 <>
-               <li key={index} className="customList2" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+                    <li key={index} className="customList2" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
 
                     <span>De <span style={{color:"black"}}>{trouve(c.id_user1)}</span><br />
-                    {c.message}
+                        {c.message}
                     </span>
-                    <br />
-                   <span style={{fontSize:"0.8em", float:"right", marginRight:"20px", color:"grey"}}>{c.date}</span>
-                </li>
+                        <br />
+                        <span style={{fontSize:"0.8em", float:"right", marginRight:"20px", color:"grey"}}>{formateDateTime(c.date)}</span>
+                    </li>
 
-               </>
+                </>
             ))}
 
 
-    </>
+        </>
     )
 
 }

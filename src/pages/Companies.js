@@ -20,13 +20,13 @@ export default function Companies() {
   }, []);
 
   return (
-    <div>
-      <h1>List of Companies</h1>
-      <ul>
-        {companies.map((c) => (
-          <li key={c.id_entreprise}>{c.nom}</li>
-        ))}
-      </ul>
-    </div>
+      <div>
+        <h1>List of Companies</h1>
+        <ul>
+          {companies.map((c) => (
+              <li key={c.id_entreprise}>{c.nom}</li>
+          ))}
+        </ul>
+      </div>
   );
 }
