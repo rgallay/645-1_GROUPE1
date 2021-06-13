@@ -17,6 +17,8 @@ const Modale = (props) => {
                     </button>
                     <p>
                         <Postulant postulant={postulant}/>
+
+
                     </p>
                 </div>
             </div>

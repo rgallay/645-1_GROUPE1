@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
-const NavigationEntreprise = () => {
+const NavigationEnterprise = () => {
     return (
         <>
         <Navbar collapseOnSelect fixed='top' expand='sm' bg='dark' variant='dark'>
@@ -9,8 +9,6 @@ const NavigationEntreprise = () => {
                     <Nav>
                         <Nav.Link href='/'>Login</Nav.Link>
                         <Nav.Link href='/listeconversations'>Liste Conversations</Nav.Link>
-                        <Nav.Link href='/listeOffres'>ListeOffres</Nav.Link>
-                        <Nav.Link href='/candidats'>Candidats</Nav.Link>
                     </Nav>
             </Container>
         </Navbar>
@@ -18,4 +16,4 @@ const NavigationEntreprise = () => {
     )
 }
 
-export default NavigationEntreprise;
+export default NavigationEnterprise;

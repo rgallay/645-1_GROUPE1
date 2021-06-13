@@ -8,7 +8,7 @@ export const ENDPOINTS = {
   CHAT: `${process.env.REACT_APP_BACKEND_URL}/chat/conversation`,
   MESSAGE: `${process.env.REACT_APP_BACKEND_URL}/chat/message`,
   USERS : `${process.env.REACT_APP_BACKEND_URL}/user`,
-  COMPETENCES: `${process.env.REACT_APP_BACKEND_URL}/comptence/postulant`,
+  COMPETENCES: `${process.env.REACT_APP_BACKEND_URL}/competence/postulant`,
   FORMATIONS: `${process.env.REACT_APP_BACKEND_URL}/formation/postulant`,
   LANGUES: `${process.env.REACT_APP_BACKEND_URL}/langue/postulant`,
   SEJOURS: `${process.env.REACT_APP_BACKEND_URL}/langue/sejours`,
@@ -48,7 +48,7 @@ export const Backend = {
     return request(ENDPOINTS.POSTULANT+"/"+ id);
   },
 
-  getComptence: async function(id) {
+  getCompetence: async function(id) {
     return request(ENDPOINTS.COMPETENCES+"/"+id);
   },
 

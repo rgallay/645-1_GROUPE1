@@ -5,7 +5,7 @@ import Companies from "./pages/Companies";
 import Login from "./pages/Login";
 import ListeOffres from "./pages/ListeOffres"
 import NavigationUser from "./pages/NavigationUser";
-import NavigationEntreprise from "./pages/NavigationEnterprise";
+import NavigationEnterprise from "./pages/NavigationEnterprise";
 import {ID_USER_CONNECTED, TOKEN_STORAGE_KEY, TYPE_USER_CONNECTED} from "./utils/request";
 import React, {useEffect, useState} from "react";
 import ListeConversations from "./pages/ListeConversations";
@@ -23,8 +23,13 @@ function App() {
       <header className="App-header">
         <p>Welcome to the WeAll Chat</p>
 
+<<<<<<< Updated upstream
 
         { userLogged <1 ? null : user === 1 ? (<NavigationEntreprise/>) :  (<NavigationUser/>) }
+=======
+        { (userLogged === null) ? null : (user === 1) ? (<NavigationEnterprise/>) : (<NavigationUser/>) }
+
+>>>>>>> Stashed changes
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={Login} />

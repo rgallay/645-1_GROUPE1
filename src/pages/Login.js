@@ -3,6 +3,10 @@ import { Backend } from "../services/backend";
 import { ID_USER_CONNECTED, TOKEN_STORAGE_KEY, TYPE_USER_CONNECTED } from "../utils/request";
 import { useHistory } from "react-router-dom";
 
+
+const userContext = React.createContext({user: {}});
+export { userContext };
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
