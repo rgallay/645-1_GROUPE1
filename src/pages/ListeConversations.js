@@ -16,10 +16,23 @@ export default function ListeConversations() {
   const[messages, setMessages] = useState(0);
   const {revele, toggle} = LogiqueModale();
   const [postulant, setPostulant] = useState();
+  const [competence, setPostulantComp] = useState(0);
+  const [softskill, setSoftskill] = useState(0);
+  const [langues, setLangues] = useState(0);
+  const [experience, setExperience] = useState(0);
+
   const history = useHistory();
   const user = localStorage.getItem(TYPE_USER_CONNECTED);
+  const { theme, toggled, dark } = React.useContext(ThemeContext)
 
-    const { theme, toggled, dark } = React.useContext(ThemeContext)
+    function trouve(userid){
+        if(user!=0) {
+            let test = user.find(element => element.id_user === userid);
+
+            return test.e_mail;
+        }
+
+    }
 
 
   useEffect(() => {
@@ -38,13 +51,28 @@ export default function ListeConversations() {
     useEffect(() => {
         async function selectConv() {
             try {
-                //let messages = await Backend.getMessage(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
                 let messages = await Backend.getMessages(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
-                //dans ces messages je récupère tous les messages de la conversation
                 setMessages(messages);
 
-                let candidat = await Backend.getPostulant(selectedconversation.id_user2);
-                setPostulant(candidat[0]);
+                let candidats = await Backend.postulants();
+                let candidat;
+                candidats.map(item => {
+                    if (item.id_user === selectedconversation.id_user2) {
+                        candidat = item;
+                    }
+                });
+                setPostulant(candidat);
+
+                let candidatComp = await Backend.getCompetence(candidat.id_postulant);
+                setPostulantComp(candidatComp);
+                let softskill = await Backend.getSoftskills(candidat.id_postulant);
+                setSoftskill(softskill);
+
+                let langues = await Backend.getLangue(candidat.id_postulant);
+                setLangues(langues);
+
+                let experiences = await Backend.getExperience(candidat.id_postulant);
+                setExperience(experiences);
 
             } catch (e) {
                 console.error(e);
@@ -108,7 +136,7 @@ export default function ListeConversations() {
                                     {conversations.map((c, index) => (
                                         <li key={index} className="customList" >
                                     <a href="#"
-                                       onClick={() => {setSelectedConversation(c);setPostulant(c.id_user2);}}>
+                                       onClick={() => {setSelectedConversation(c);}}>
                                         {c.id_user1} {c.id_user2}
                                     </a><span> </span>
                                             <button className="deleteButton" onClick={deleteMessage}>Delete</button>
@@ -138,6 +166,10 @@ export default function ListeConversations() {
                   revele={revele}
                   cache={toggle}
                   postulant ={postulant}
+                  competence={competence}
+                  softskill={softskill}
+                  langues={langues}
+                  experience={experience}
               />
           </div>
           </>
