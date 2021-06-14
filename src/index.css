@@ -86,6 +86,7 @@ code {
   border:none;
 }
 
+
 #ListeConversation table{
   display: block;
   height: 600px;
@@ -94,6 +95,10 @@ code {
 #ListeConversation table tbody tr td:nth-child(2){
   height: 450px;
   width: 600px;
+  background-color: aliceblue;
+}
+#ListeConversation table tbody tr td:first-child{
+  background-color: slategray;
 }
 
 #ListeConversation table tbody tr td:nth-child(2) ul {
@@ -102,10 +107,13 @@ code {
 }
 
 #ListeConversation table,th{
-  border:0.5px solid white;
+}
+
+#ListeConversation table thead tr:first-child{
+  text-align: center;
+  background-color: lightslategrey;
 }
 #ListeConversation td:first-child{
-  border-right:0.5px solid white;
   vertical-align: top;
 }
 #ListeConversation ul{
@@ -149,5 +157,6 @@ code {
 .specialTest{
   vertical-align: top;
     overflow: auto;
+  width: 527px;
 }
 

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import "../App.css";
 import { Backend } from "../services/backend";
 import { ID_USER_CONNECTED, TOKEN_STORAGE_KEY, TYPE_USER_CONNECTED } from "../utils/request";
 import { useHistory } from "react-router-dom";
@@ -59,8 +60,8 @@ export default function Login() {
     })
 
     return (
-        <div>
-            <h3>{isLoggedIn==false ? 'Connectez-vous' : 'Vous êtes connectés'}</h3>
+        <div className="login">
+            <h4>{isLoggedIn==false ? 'Connectez-vous' : 'Vous êtes connectés'}</h4>
 
             {isLoggedIn==false ? (<form onSubmit={handleSubmit}>
                 <input
