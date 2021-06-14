@@ -17,13 +17,16 @@ export const Postulant = (props) => {
                 </div>
 
                 <div className="cadre">
-                    <img
-                        alt={postulant.url}
+                    {postulant.url_photo== undefined || postulant.url_photo== " " ? (<img
+                        alt={postulant.url_photo}
                         src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
                         style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
-                    />
+                    />) : (<img
+                            alt={postulant.url_photo}
+                            src={postulant.url_photo}
+                            style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
+                        />)}
                     <br />
-
                     <p>Description personnelle du candidat: <br/>{postulant.description}</p>
                     <p className="cadre">Contact: {postulant.telephone}</p>
                 </div>

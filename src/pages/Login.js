@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Backend } from "../services/backend";
 import { ID_USER_CONNECTED, TOKEN_STORAGE_KEY, TYPE_USER_CONNECTED } from "../utils/request";
 import { useHistory } from "react-router-dom";
@@ -17,7 +17,6 @@ export default function Login() {
     };
 
     const handleSubmit = async (e) => {
-        // Stop the browser from submitting in the "traditional" way
         e.preventDefault();
 
         try {
@@ -25,19 +24,15 @@ export default function Login() {
             let users = await Backend.getUser();
             let userConnected;
 
-//     let userConnected = users.find(element => element.e_mail === email);
             users.map(item => {
                 if (item.e_mail === email) {
                     userConnected = item;
                 }
             });
 
-            setLog(true);
-            // Save the token to localStorage & redirect to the home page
             localStorage.setItem(TOKEN_STORAGE_KEY, loginData.token);
             localStorage.setItem(ID_USER_CONNECTED, userConnected.id_user);
             localStorage.setItem(TYPE_USER_CONNECTED, userConnected.isEntreprise);
-            // Redirect to the home page
 
             history.go(0);
         } catch (e) {
@@ -48,18 +43,24 @@ export default function Login() {
     const logout = async (e) => {
         e.preventDefault();
 
-        setLog(false);
         try {
             localStorage.clear();
-            history.push("/");
+            history.go(0);
         } catch (e) {
             console.error(e);
         }
     };
+    useEffect(()=> {
+        if(localStorage.getItem(ID_USER_CONNECTED)== undefined) {
+            setLog(false);
+        }else {
+            setLog(true);
+        }
+    })
 
     return (
         <div>
-            <h1>Login</h1>
+            <h3>{isLoggedIn==false ? 'Connectez-vous' : 'Vous êtes connectés'}</h3>
 
             {isLoggedIn==false ? (<form onSubmit={handleSubmit}>
                 <input

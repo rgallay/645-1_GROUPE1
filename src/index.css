@@ -30,12 +30,21 @@ code {
   margin-bottom: 20px;
 
 }
+.cadre img {
+  margin:0px;
+}
+.cadre ul li {
+  list-style: none;
+}
 
 .postulant h3,h4,h5{
   text-align: left;
 }
 .offre h3,h4,h5{
   text-align: left;
+}
+.offre ul li{
+  color:black;
 }
 
 .overlay {
@@ -70,6 +79,7 @@ code {
 }
 .profilEntreprise{
   margin-left:20px;
+
 }
 
 #ListeConversation thead tr th:nth-child(3){
