@@ -6,7 +6,7 @@ import {formateDateTime} from "../utils/FormatDate";
 export const Conversation = (props) => {
     const[user, setUser] = useState([0]);
     const {conversations} = props;
-    const { theme, toggled, dark } = React.useContext(ThemeContext)
+    const { theme } = React.useContext(ThemeContext)
     function trouve(userid){
         if(user!=0) {
             let test = user.find(element => element.id_user === userid);

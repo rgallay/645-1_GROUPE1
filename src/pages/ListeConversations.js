@@ -13,14 +13,14 @@ export default function ListeConversations() {
 
     const[conversations, setConversations] = useState([]);
     const[selectedconversation, setSelectedConversation] = useState([0]);
-    const[messages, setMessages] = useState(0);
+    const[messages, setMessages] = useState([]);
     const {revele, toggle} = LogiqueModale();
     const [postulant, setPostulant] = useState();
-    const [competence, setPostulantComp] = useState(0);
-    const [softskill, setSoftskill] = useState(0);
-    const [langues, setLangues] = useState(0);
-    const [experience, setExperience] = useState(0);
-    const [formations, setFormations] = useState(0);
+    const [competence, setPostulantComp] = useState([]);
+    const [softskill, setSoftskill] = useState([]);
+    const [langues, setLangues] = useState([]);
+    const [experience, setExperience] = useState([]);
+    const [formations, setFormations] = useState([]);
 
     const history = useHistory();
     const user = localStorage.getItem(TYPE_USER_CONNECTED);
@@ -66,6 +66,7 @@ export default function ListeConversations() {
 
                 let candidatComp = await Backend.getCompetence(candidat.id_postulant);
                 setPostulantComp(candidatComp);
+
                 let softskill = await Backend.getSoftskills(candidat.id_postulant);
                 setSoftskill(softskill);
 

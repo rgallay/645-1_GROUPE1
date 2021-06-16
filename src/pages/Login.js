@@ -21,6 +21,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
+
             let loginData = await Backend.login(email, password);
             let users = await Backend.getUser();
             let userConnected;
@@ -37,7 +38,7 @@ export default function Login() {
 
             history.go(0);
         } catch (e) {
-            console.error(e);
+           console.error(e);
         }
     };
 
@@ -57,7 +58,7 @@ export default function Login() {
         }else {
             setLog(true);
         }
-    })
+    },  [handleSubmit])
 
     return (
         <div className="login">

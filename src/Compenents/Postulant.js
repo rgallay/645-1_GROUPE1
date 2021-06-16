@@ -7,7 +7,7 @@ export const Postulant = (props) => {
         <div className="postulant">
             <h3>Profil du candidat</h3>
             <div>
-                <div className="cadre"className="hiddenclass">
+                <div className={["cadre", "hiddenclass"].join(" ")}>
                     <p>{postulant.nom} {postulant.prenom}</p>
                     <p> Date de naissance :   {formateDate(postulant.date_de_naissance)}  </p>
                     <p>{postulant.sexe}</p>
@@ -18,11 +18,11 @@ export const Postulant = (props) => {
 
                 <div className="cadre">
                     {postulant.url_photo== undefined || postulant.url_photo== " " ? (<img
-                        alt={postulant.url_photo}
+                        alt={"noImage"}
                         src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
                         style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
                     />) : (<img
-                            alt={postulant.url_photo}
+                            alt={"No Image"}
                             src={postulant.url_photo}
                             style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
                         />)}
@@ -34,9 +34,9 @@ export const Postulant = (props) => {
                 <div className="cadre">
                     <h5>Formations</h5>
                     <ul>
-                        {formation.map((c) => (
+                        {formation.map((c, index) => (
                             <>
-                                <li className="cadre">
+                                <li className="cadre" key={index}>
                                     <h5 >{c.diplome}</h5>
                                     <h5>Dates</h5>
                                     Début : {formateDate(c.date_debut)}<br /> Fin : {formateDate(c.date_fin)}
@@ -53,9 +53,9 @@ export const Postulant = (props) => {
                 <div className="cadre">
                     <h5>Expériences professionnelles</h5>
                     <ul>
-                        {experience.map((c) => (
+                        {experience.map((c, index) => (
                             <>
-                                <li>
+                                <li key={index}>
                                     Année d'expérience:<span> </span>
                                     {calculDate(c.date_fin, c.date_debut)}
 
@@ -75,8 +75,8 @@ export const Postulant = (props) => {
 
                     <h5>COMPETENCES</h5>
                     <ul>
-                        {competence.map((c) => (
-                            <li>
+                        {competence.map((c, index) => (
+                            <li key={index}>
                                 {c.competence}
                             </li>
                         ))}
@@ -88,15 +88,15 @@ export const Postulant = (props) => {
                     <h4>Langues</h4>
 
                     <ul>
-                        {langues.map((c) => (
+                        {langues.map((c, index) => (
                             <>
-                                <li>
+                                <li key={index}>
                                     Langue: {c.langue} - Niveau: {c.niveau} - Certificat: {c.certificat}<br />
                                     Séjour:
                                     <ul>
 
                                         {c.sejours.map((d) => (
-                                            <li>
+                                            <li key={d.id_sejour}>
                                                 Pays: {d.pays} <br />Type: {d.type} <br />Date: {formateDate(d.debut)} - {formateDate(d.fin)}
                                             </li>
                                         ))}
@@ -110,8 +110,8 @@ export const Postulant = (props) => {
                     <h4>Sofstskills</h4>
 
                     <ul>
-                        {softskill.map((c) => (
-                            <li>
+                        {softskill.map((c, index) => (
+                            <li key={index}>
                                 {c.softskill}
                             </li>
                         ))}
