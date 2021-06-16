@@ -8,8 +8,8 @@ export const Offre = (props) => {
             <div>
                 <h3>Profil de l'entreprise et offre</h3>
                 <h3>Nom: {entreprise.nom}</h3>
-                {entreprise.image_url == undefined ? (<img
-                    alt={"noImage"}
+                {entreprise.image_url== undefined || entreprise.image_url== "" ? (<img
+                    alt="noImage"
                     src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
                     style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
                 />) : (<img

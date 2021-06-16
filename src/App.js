@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch} from "react-router-dom";
-import ListePostulants from "./pages/ListePostulants";
 import Login from "./pages/Login";
 import ListeOffres from "./pages/ListeOffres"
 import NavigationUser from "./pages/NavigationUser";
@@ -36,7 +35,6 @@ function App() {
             <Route path="/" exact component={Login} />
             <Route path="/listeconversations" component={ListeConversations} />
             <Route path="/listeOffres" component={ListeOffres} />
-            <Route path="/candidats" component={ListePostulants} />
           </Switch>
         </BrowserRouter>
       </header>
