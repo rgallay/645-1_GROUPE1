@@ -18,11 +18,11 @@ export const Postulant = (props) => {
 
                 <div className="cadre">
                     {postulant.url_photo== undefined || postulant.url_photo== " " ? (<img
-                        alt={"noImage"}
-                        src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
+                        alt="noImage"
+                        src={"https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"}
                         style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
                     />) : (<img
-                            alt={"No Image"}
+                            alt="No Image"
                             src={postulant.url_photo}
                             style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
                         />)}
