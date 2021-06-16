@@ -13,7 +13,7 @@ export const Offre = (props) => {
                     src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
                     style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
                 />) : (<img
-                        alt={entreprise.image_url}
+                        alt={"No Image"}
                         src={entreprise.image_url}
                         style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
                     />)}
