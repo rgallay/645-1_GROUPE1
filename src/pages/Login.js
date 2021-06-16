@@ -3,6 +3,7 @@ import "../App.css";
 import { Backend } from "../services/backend";
 import { ID_USER_CONNECTED, TOKEN_STORAGE_KEY, TYPE_USER_CONNECTED } from "../utils/request";
 import { useHistory } from "react-router-dom";
+import Clock from "../Clock";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -62,6 +63,7 @@ export default function Login() {
 
     return (
         <div className="login">
+            <Clock />
             <h4>{isLoggedIn==false ? 'Connectez-vous' : 'Vous êtes connectés'}</h4>
 
             {isLoggedIn==false ? (<form onSubmit={handleSubmit}>
