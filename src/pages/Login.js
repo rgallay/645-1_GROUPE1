@@ -20,9 +20,7 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
-
             let loginData = await Backend.login(email, password);
             let users = await Backend.getUser();
             let userConnected;

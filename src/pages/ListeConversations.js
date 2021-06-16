@@ -55,30 +55,32 @@ export default function ListeConversations() {
                 let messages = await Backend.getMessages(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
                 setMessages(messages);
 
-                let candidats = await Backend.postulants();
-                let candidat;
-                candidats.map(item => {
-                    if (item.id_user === selectedconversation.id_user2) {
-                        candidat = item;
-                    }
-                });
-                setPostulant(candidat);
+                if(localStorage.getItem('TYPE_USER_CONNECTED') == 1) {
+                    let candidats = await Backend.postulants();
+                    let candidat;
+                    candidats.map(item => {
+                        if (item.id_user === selectedconversation.id_user2) {
+                            candidat = item;
+                        }
+                    });
+                    setPostulant(candidat);
 
-                let candidatComp = await Backend.getCompetence(candidat.id_postulant);
-                setPostulantComp(candidatComp);
+                    let candidatComp = await Backend.getCompetence(candidat.id_postulant);
+                    setPostulantComp(candidatComp);
 
-                let softskill = await Backend.getSoftskills(candidat.id_postulant);
-                setSoftskill(softskill);
+                    let softskill = await Backend.getSoftskills(candidat.id_postulant);
+                    setSoftskill(softskill);
 
-                let langues = await Backend.getLangue(candidat.id_postulant);
-                setLangues(langues);
+                    let langues = await Backend.getLangue(candidat.id_postulant);
+                    setLangues(langues);
 
-                let experiences = await Backend.getExperience(candidat.id_postulant);
-                setExperience(experiences);
+                    let experiences = await Backend.getExperience(candidat.id_postulant);
+                    setExperience(experiences);
 
-                let formations = await Backend.getFormation(candidat.id_postulant);
-                setFormations(formations);
+                    let formations = await Backend.getFormation(candidat.id_postulant);
+                    setFormations(formations);
 
+                }
             } catch (e) {
                 console.error(e);
             }

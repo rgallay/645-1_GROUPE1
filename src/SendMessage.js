@@ -18,25 +18,10 @@ export default function SendMessage(props) {
 
     try {
       let me = localStorage.getItem(ID_USER_CONNECTED);
-      console.log(user2);
       await Backend.sendMessage(me,user2.id_user2,message);
       setMessage("");
       history.go(0);
-     /* let loginData = await Backend.login(email, password);
 
-
-
-      let users = await Backend.getUser();
-      let userConnected;
-
-//     let userConnected = users.find(element => element.e_mail === email);
-      users.map(item => {
-        if (item.e_mail === email) {
-          userConnected = item;
-        }
-      });
-
-      history.push("/listeconversation");*/
     } catch (e) {
       console.error(e);
     }
@@ -44,7 +29,6 @@ export default function SendMessage(props) {
 
   return (
     <>
-
       <form onSubmit={handleSubmit}>
         <textarea
           required
