@@ -30,12 +30,21 @@ code {
   margin-bottom: 20px;
 
 }
+.cadre img {
+  margin:0px;
+}
+.cadre ul li {
+  list-style: none;
+}
 
 .postulant h3,h4,h5{
   text-align: left;
 }
 .offre h3,h4,h5{
   text-align: left;
+}
+.offre ul li{
+  color:black;
 }
 
 .overlay {
@@ -70,11 +79,13 @@ code {
 }
 .profilEntreprise{
   margin-left:20px;
+
 }
 
 #ListeConversation thead tr th:nth-child(3){
   border:none;
 }
+
 
 #ListeConversation table{
   display: block;
@@ -84,6 +95,10 @@ code {
 #ListeConversation table tbody tr td:nth-child(2){
   height: 450px;
   width: 600px;
+  background-color: aliceblue;
+}
+#ListeConversation table tbody tr td:first-child{
+  background-color: slategray;
 }
 
 #ListeConversation table tbody tr td:nth-child(2) ul {
@@ -92,10 +107,13 @@ code {
 }
 
 #ListeConversation table,th{
-  border:0.5px solid white;
+}
+
+#ListeConversation table thead tr:first-child{
+  text-align: center;
+  background-color: lightslategrey;
 }
 #ListeConversation td:first-child{
-  border-right:0.5px solid white;
   vertical-align: top;
 }
 #ListeConversation ul{
@@ -139,5 +157,6 @@ code {
 .specialTest{
   vertical-align: top;
     overflow: auto;
+  width: 527px;
 }
 

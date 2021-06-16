@@ -51,10 +51,10 @@ export default function SendMessage(props) {
           placeholder="Bonjour je m'appelle Henri ... "
           type="text"
           onChange={handleTexteChange}
-          style={{width: "400px", height: "87px", resize:"none"}}
+          style={{width: "500px", height: "87px", resize:"none"}}
           value={message}
         />
-        <button type="submit">Envoyer</button>
+        <button type="submit" style={{marginLeft:"8px"}}>Envoyer</button>
       </form>
     </>
   );
