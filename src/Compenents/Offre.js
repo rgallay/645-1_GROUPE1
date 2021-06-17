@@ -5,7 +5,7 @@ export const Offre = (props) => {
 
     return(
         <div className="offre">
-            <div>
+            <div className="cadre">
                 <h3>Profil de l'entreprise et offre</h3>
                 <h3>Nom: {entreprise.nom}</h3>
 
@@ -37,7 +37,7 @@ export const Offre = (props) => {
             </div>
             <div className="cadre">
                 <h4>Offre proposée</h4>
-                <h5>Titre: {offre.nom}</h5>
+                <p>Titre: {offre.nom}</p>
                 <p>Taux: {offre.taux}</p>
                 <p>Contrat: {offre.contrat}</p>
                 <p>Adresse: {offre.npa} {offre.ville}</p>
