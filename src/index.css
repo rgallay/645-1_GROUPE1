@@ -23,11 +23,16 @@ code {
 .listInline a:visited{
   color:white;
 }
+.listInline a:hover{
+  color:#67B7B7;
+}
 .cadre {
-  border: 1px;
+  border: 1px grey;
   border-style: solid;
   margin:20px;
   margin-bottom: 20px;
+  background-color:#E2EDED;
+  padding:10px;
 
 }
 .cadre img {
@@ -39,6 +44,13 @@ code {
 
 .postulant h3,h4,h5{
   text-align: left;
+}
+.postulant h5{
+  background-color: #67B7B7;
+}
+
+.offre h4{
+  background-color: #67B7B7;
 }
 .offre h3,h4,h5{
   text-align: left;

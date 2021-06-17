@@ -8,10 +8,11 @@ export const Postulant = (props) => {
             <h3>Profil du candidat</h3>
             <div>
                 <div className={["cadre", "hiddenclass"].join(" ")}>
-                    <p>{postulant.nom} {postulant.prenom}</p>
+                    <p>Nom : {postulant.nom} </p>
+                    <p>Prénom: {postulant.prenom}</p>
                     <p> Date de naissance :   {formateDate(postulant.date_de_naissance)}  </p>
-                    <p>{postulant.sexe}</p>
-                    <p>{postulant.adress}<br/>{postulant.npa} - {postulant.localite}</p>
+                    <p>Sexe: {postulant.sexe}</p>
+                    <p>Adresse: {postulant.adress}<br/>{postulant.npa} - {postulant.localite}</p>
 
                     <br />
                 </div>
@@ -27,22 +28,24 @@ export const Postulant = (props) => {
                             style={{ height: '100px', width: "100px", float:"left", margin:"20px" }}
                         />)}
                     <br />
-                    <p>Description personnelle du candidat: <br/>{postulant.description}</p>
-                    <p className="cadre">Contact: {postulant.telephone}</p>
+                    <p>Description personnelle du candidat:</p>
+                    {postulant.description}
+                    <p>Contact: {postulant.telephone}</p>
                 </div>
 
                 <div className="cadre">
-                    <h5>Formations</h5>
+                    <h4>Formations</h4>
                     <ul>
                         {formation.map((c, index) => (
                             <>
                                 <li className="cadre" key={index}>
-                                    <h5 >{c.diplome}</h5>
+                                    <h5 >Diplôme</h5>
+                                    {c.diplome}
                                     <h5>Dates</h5>
                                     Début : {formateDate(c.date_debut)}<br /> Fin : {formateDate(c.date_fin)}
                                     <h5>Cursus</h5>
                                     {c.cursus}
-                                    <h5>Diplôme</h5>
+                                    <h5>Degree</h5>
                                     {c.degree}
                                 </li><br />
                             </>
@@ -72,8 +75,6 @@ export const Postulant = (props) => {
                 </div>
                 <div className="cadre">
                     <h5>Compétences</h5>
-
-                    <h5>COMPETENCES</h5>
                     <ul>
                         {competence.map((c, index) => (
                             <li key={index}>
@@ -85,7 +86,7 @@ export const Postulant = (props) => {
                 </div>
 
                 <div  className="cadre">
-                    <h4>Langues</h4>
+                    <h5>Langues</h5>
 
                     <ul>
                         {langues.map((c, index) => (
@@ -107,7 +108,7 @@ export const Postulant = (props) => {
                     </ul>
                 </div>
                 <div  className="cadre">
-                    <h4>Sofstskills</h4>
+                    <h5>Sofstskills</h5>
 
                     <ul>
                         {softskill.map((c, index) => (
@@ -123,7 +124,7 @@ export const Postulant = (props) => {
                     <h5>Disponibilité: </h5>
                     <p>{postulant.disponibilite}</p>
                     <h5>Attente salariale: </h5>
-                    <p>{postulant.salaire_min} - {postulant.salaire_max}</p>
+                    <p>{postulant.salaire_min} - {postulant.salaire_max} CHF</p>
                 </div>
 
 
