@@ -55,7 +55,7 @@ export default function ListeConversations() {
                 let messages = await Backend.getMessages(localStorage.getItem('idUserConnected'),selectedconversation.id_user2);
                 setMessages(messages);
 
-                if(localStorage.getItem('TYPE_USER_CONNECTED') == 1) {
+                if(localStorage.getItem(TYPE_USER_CONNECTED) == 1) {
                     let candidats = await Backend.postulants();
                     let candidat;
                     candidats.map(item => {
@@ -116,7 +116,6 @@ export default function ListeConversations() {
                         <th>Liste des conversations </th>
                         <th>Conversation sélectionnées</th>
                         <th>
-
                             {(user == 1 && postulant!=undefined) ? <button style={{marginRight:'5px'}} onClick={() => {toggle();}}>Profil</button> : null}
 
                             <button
